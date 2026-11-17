@@ -1,0 +1,10 @@
+{
+  "name": "SpeedBot",
+  "description": "Control an Arduino Nano robot car through Bluetooth using an HC-05 module with virtual analog joystick, horn, LED toggle, and 2-minute session timer.",
+  "requestFramePermissions": [
+    "bluetooth"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
