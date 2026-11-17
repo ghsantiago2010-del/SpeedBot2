@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Fondo circular oscuro futurista -->
+    <path
+        android:fillColor="#080C14"
+        android:pathData="M54,4 A50,50 0 1,1 53.99,4 Z" />
+
+    <!-- Anillo exterior neón cian -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#06B6D4"
+        android:strokeWidth="4"
+        android:pathData="M54,8 A46,46 0 1,1 53.99,8 Z" />
+
+    <!-- Anillo interior azul eléctrico -->
+    <path
+        android:fillColor="#0F172A"
+        android:strokeColor="#2563EB"
+        android:strokeWidth="2"
+        android:pathData="M54,18 A36,36 0 1,1 53.99,18 Z" />
+
+    <!-- Emblema rayo / velocidad SpeedBot -->
+    <path
+        android:fillColor="#22D3EE"
+        android:pathData="M58,24 L36,56 L51,56 L47,84 L72,50 L56,50 Z" />
+</vector>

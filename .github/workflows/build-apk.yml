@@ -1,0 +1,48 @@
+name: Build SpeedBot Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    name: Compilar APK Nativo SpeedBot
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Java JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Configurar Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Configurar Gradle 8.7
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Compilar APK Debug y Release
+        working-directory: android-app
+        run: |
+          gradle assembleDebug assembleRelease --no-daemon --stacktrace
+          mkdir -p build-outputs
+          cp app/build/outputs/apk/debug/app-debug.apk build-outputs/SpeedBot-debug.apk
+          cp app/build/outputs/apk/release/app-release.apk build-outputs/SpeedBot-release.apk
+
+      - name: Subir APK instalable como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: SpeedBot-APK
+          path: |
+            android-app/build-outputs/SpeedBot-debug.apk
+            android-app/build-outputs/SpeedBot-release.apk
+          retention-days: 30
